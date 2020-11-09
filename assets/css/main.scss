@@ -470,6 +470,7 @@ img {
     @include mobile-only {
         display: block;
         margin: -.5rem;
+        margin-top: .5rem;
     }
 
     @include breakpoint(medium) {
@@ -696,6 +697,9 @@ img {
 .post_comment {
     margin-top: 8rem;
     padding: 10px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 15px;
 }
 
 
@@ -774,4 +778,23 @@ img {
 
 .color3 {
   color: #80b87a;
+}
+
+ul.icon{
+    text-align: center;
+    padding-left: 0;
+    .nav_icon{
+        width: 32px;
+        display: inline-block;
+        list-style: none;
+        vertical-align: middle;
+        img{
+            max-width: 100%;
+        }
+    }
+    .nav_icon:nth-child(2){
+        img{
+            width: 22px;
+        }
+    }
 }
