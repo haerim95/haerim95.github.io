@@ -1,7 +1,7 @@
 ---
 title: vue 세팅해보자!
 date: 2020-09-02
-categories: [Vue]
+categories: [vue]
 comments: true
 ---
 
