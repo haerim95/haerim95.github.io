@@ -371,6 +371,8 @@ img {
             position: relative;
             transition: box-shadow .5s ease 0s, transform .5s ease .1s;
 
+            margin-bottom: 20px;
+
             &:before {
                 
                 content: '';
@@ -631,10 +633,11 @@ img {
     }
 
     blockquote {
-        border-left: 5px solid var(--blockquote);
+        // border-left: 5px solid var(--blockquote);
+        border-left: 5px solid #dedede;
         margin: 10px 0 10px 0;
         padding: 2px 8px 2px 8px;
-        font-style: italic;
+        // font-style: italic;
     }
 
     dfn {
@@ -712,4 +715,63 @@ img {
         text-decoration: none;
         color: var(--footer_font_a);
     }
+}
+
+/*  MY Custom
+========================================================================== */
+
+.iterm, .notice {
+  margin: 1rem 0;
+}
+
+.iterm {
+  padding: .6rem;
+  border-radius: 10px;
+  background-color: #000000;
+
+  span {
+    font-size: 0.8em;
+    display: block;
+    color: #e2e2e2;
+
+    &.notes {
+      color: #9f9f9f;
+    }
+  }
+}
+
+.notice {
+  padding: .6rem;
+  background-color: #f5f5f5;
+  color: #333;
+
+  span {
+    &.color1 {
+      color: #80b87a;
+    }
+
+    &.color2 {}
+  }
+}
+
+.imgWrap {
+  img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 1em;
+    background-color: #f5f5f5;
+  }
+}
+
+.color2 {
+  color: #f86b4a;
+}
+
+.color3 {
+  color: #80b87a;
 }

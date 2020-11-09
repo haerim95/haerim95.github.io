@@ -1,0 +1,58 @@
+I"�	<hr />
+
+<h1 id="data-type">Data Type</h1>
+
+<h2 id="0-데이터-타입-형태">0 데이터 타입 형태</h2>
+
+<ul>
+  <li>숫자 타입 : <code class="language-plaintext highlighter-rouge"> var value = 123;</code></li>
+  <li>문자 타입 : <code class="language-plaintext highlighter-rouge"> var value = "일이삼";</code></li>
+</ul>
+
+<blockquote>
+  <p>Data Type을 반환하고 싶다면?</p>
+  <blockquote>
+    <p>typeof 연산자 사용
+typeof 연산자와 같이 특별한 기능을 가진 단어를 키워드(ketword)라고 부른다.</p>
+  </blockquote>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">var</span> <span class="nx">point</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+    <span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">point</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">책</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">book</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p class="color3">[실행결과]</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Number  
+String
+</code></pre></div></div>
+<p><br /></p>
+
+<hr />
+<h2 id="0-1-데이터-타입">0-1 데이터 타입</h2>
+
+<p>데이터 타입은 <code class="language-plaintext highlighter-rouge">자료형</code> 이라고 표기하기도 한다.</p>
+
+<p>Data는 반드시 Type을 갖는다.<br />
+데이터 타입에 따라서 javascript가 처리하는 방법, 혹은 에러가 생길 수 도 있다.</p>
+
+<p><br /></p>
+
+<hr />
+<h2 id="0-2-데이터-타입-분류">0-2. 데이터 타입 분류</h2>
+
+<p>언어 타입과 스펙 타입 두 가지로 나눠지는데<br />
+개념만 한 번 읽어보면 좋을 듯 싶다.</p>
+
+<p>| 언어타입 | 스펙타입 |
+|:—:|:—:|
+| JS 프로그램에서 사용할 수 있는 타입 | 언어 알고리즘을 위한 타입 (JS에서 사용 불가) |
+| Undefined, Null, Boolean, String, Number, Object | Reference, List, Completion, Property, Descriptor, Data Block, Lexical Environment, Lexical Record 등 |
+<br /></p>
+
+<hr />
+<h2 id="1-number-type">1. Number Type</h2>
+
+:ET
