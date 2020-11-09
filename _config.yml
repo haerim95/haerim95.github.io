@@ -15,7 +15,7 @@ timezone:
 favicon: /assets/img/favicon.ico
 
 google_analytics: #UA—XXXXXXXX-X
-disqus_shortname: #disqus shortname
+disqus_shortname: Haerim's Dev Blog
 
 user:
   name: HaeRim's Dev Blog
