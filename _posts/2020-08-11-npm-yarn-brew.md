@@ -1,5 +1,5 @@
 ---
-title: "npm과 yarn 그리고 brew"
+title: npm과 yarn 그리고 brew
 date: 2020-08-11
 categories: Language
 ---

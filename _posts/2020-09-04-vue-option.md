@@ -1,5 +1,5 @@
 ---
-title: "vue CLI로 생성된 환경을 알아보자"
+title: vue CLI로 생성된 환경을 알아보자
 date: 2020-09-04
 categories: [Vue]
 ---

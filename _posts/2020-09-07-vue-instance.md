@@ -1,5 +1,5 @@
 ---
-title: "vue 인스턴스"
+title: vue 인스턴스
 date: 2020-09-07
 categories: [Vue]
 ---
