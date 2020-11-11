@@ -166,7 +166,7 @@ Vue.component('MyComponent2', {
     <span>[코드1] 템플릿 내부 표현식</span>
 </div>
 
-```vue
+```Vue
     // computed 사용
     <div id="example">
         <p>원본 메세지 : "{{ message }}"</p>
