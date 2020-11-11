@@ -25,7 +25,7 @@ vue 애플리케이션의 루트는 위와 같은 Vue 인스턴스로 구성된�
 이 루트를 기반으로 component들이 트리 형태로 위치한다.
 
 <div style="text-align: center; margin-bottom:1em;">
-    <img src="./../public/img/componentEx.png">
+    <img src="/assets/img/post/componentEx.png" />
     <span style="display: inline-block; width: 100%; color: #999; font-size: .8em;">[그림] component 구조 도식화</span>
 </div>
 
