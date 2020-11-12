@@ -15,7 +15,9 @@ comments: true
 Vue Project를 성공적으로 생성했다면 이와 같은 구조의 파일, 디렉토리를 볼 수 있을 것이다.
 
 <div class="imgWrap">
-    <img src="/assets/img/post/rootImg.png">
+    <figure>
+        <img src="/assets/img/post/vue/rootImg.png">
+    </figure>
     <span>파일 앞에 마침표(.)가 붙은 파일들은 Linux / Unix 기반의 운영체제에서 숨김 파일을 의미하므로 보이지 않을 수도 있다.  
     하지만 IDE로 해당 프로젝트를 불러오면 모두 노출된다.
     </span>
