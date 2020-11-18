@@ -814,3 +814,53 @@ table{
         border: 1px solid #9f9f9f;
     }
 }
+
+/* 
+refer from 
+- https://devinlife.com/
+- https://github.com/allejo/jekyll-toc
+*/
+
+    .sidebar__right {
+        display: block;
+        position: relative;
+        top: 0;
+        width: 200px;
+        /* padding-left: 1em; */
+        z-index: 10;
+        clear: both;
+        position: -webkit-sticky;
+        top: 2em;
+        float: right;
+      }
+      
+      .toc {
+          margin-top: 32rem;
+        // background-color: #ffffff;
+        // border: 1px solid #b6b6b6;
+        width: 17rem;
+        top: 32rem;
+        font-size: .75em;
+        border-right: 2px solid var(--job_font);
+        ul {
+          margin: 0;
+          padding: 4px;
+          list-style: none;
+        }
+        li {
+            text-align: right;
+            padding: 5px 10px;
+            a{
+                color: var(--job_font);
+                &:active{
+                    color: var(--inlinecode_text)
+                }
+            }
+        }
+
+        
+
+    @include mobile-only {
+        display: none;
+    }
+      }

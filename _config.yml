@@ -45,3 +45,6 @@ show_drafts: null
 limit_posts: 0
 future:      false
 unpublished: false
+
+kramdown:
+  html_to_native: true
