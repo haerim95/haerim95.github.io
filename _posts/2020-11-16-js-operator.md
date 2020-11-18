@@ -333,3 +333,160 @@ ES6에선 다섯자리의 코드 값을 지원한다. (원래는 네자리만 �
 * `UTF-8`, `UTF-16`, `UTF-32` 로 표기 된다.
 * <meta charset="utf-8"> ➡ HTML 작성시 표기법
 * utf-8은 8비트로 코드 포인트를 매핑했다는 뜻이다. 8비트 인코딩이라고 부른다.
+
+---
+
+## 괸계 연산자
+
+* 작거나 큰걸 비교하는 연산자
+    (`<`, `>`, `<=`, `>=`)
+* instanceof 연산자
+* in 연산자
+
+
+### 1. > 연산자
+
+* 양쪽이 Number 타입일 때 
+   왼쪽이 오른쪽 보다 크면 true  
+   왼쪽이 오른쪽 보다 작으면 false
+  ```js
+  log(1 + 2 > 1); //결과 값 : true
+  ```
+* String 타입 비교
+    한 쪽만 String 차입이면 false
+    양쪽이 모두 String 타입이면 유니코드 사전 순서로 비교한다.
+* `<`, `>`, `<=`, `>=` 는 비교 기준만 다르다.
+
+
+---
+
+## == 연산자
+
+* 양쪽의 값이 같으면 true 다르면 false
+* 데이터 타입은 비교하지 않는다.
+  ```js
+  log(1 === "1"); // 결과 값 : true
+  ```
+  String 타입을 Number 타입으로 변환하여 비교하기 때문에 같다.
+  ```js
+  var value;
+  log(value == null); //결과 값 : true
+  ```
+  value는 undefined로 타입이 다르지만 값이 같으므로 true가 반환된다
+
+## != 연산자
+
+* 양쪽의 값이 다르면 true 같으면 false
+* a != b 와 !(a == b) 는 같은 뜻이다.
+  
+## === 연산자
+
+* 양쪽의 값과 타입이 모두 일치하면 true
+    하나라도 다르면 false
+```js
+    log(1 === 1); //결과 값 : true
+    log(1 === "1";) // 결과 값 : false
+```
+> 주의하기! 📢
+> ```js
+> var value;
+> log(value == null); //결과 값 : true
+> log(value === null); //결과 값 : false
+> ```
+> undefined 와 null은 값이다.  
+> == 연산자로 비교하면 true, === 연산자로 비교하면 타입이 다르므로 false가 뜬다.
+> 주의해서 사용하도록 하자.
+
+## !== 연산자
+
+* 양쪽의 값 또는 타입이 다르면 true  
+  하나라도 같으면 false
+
+---
+
+## 콤마(,) 연산자
+
+* 콤마로 표현식을 분리한다.
+  ```js
+  var a =1,
+    b = 2
+  ```
+
+---
+
+## () 연산자
+
+* 그룹핑 연산자.
+* 소괄호 안의 표현식을 먼저 평가한다.
+  ```js
+  var number = 5 / (2 + 3); // 결과 값 : 1
+  ```
+
+---
+
+## || 연산자
+
+* 논리 OR 연산자
+* 표현식 안에 평가 결과가 하나라도 true면 true 아니면 false가 된다.
+  ```js
+  var value, zero = 0, two = 2;
+  log(value || zero || two); //결과 값 : 2
+  ```
+  value의 값은 undefined로 false  
+  zero의 값은 0 이므로 false (주의❕ 0은 false이다. 0제외는 true)  
+  two의 값은 2 이므로 true이므로 two의 변수값 2를 반환한다.
+  <p class="color2">true면 true가 아니라 true가 된 변수의 값을 반환한다.</p>
+  ```js
+  var value, zero = 0;
+  log(value || zero); // 결과 값 : undefined
+  ```
+  이 경우는 결과가 모두 false일때의 결과이다.  
+  모두가 false이면 false가 아닌 마지막 변수의 값을 반환한다.  
+  고로 마지막 변수인 zero의 값을 반환하여 결과 값이 undefined가 된다.
+* 왼쪽의 결과가 true 이면 뒤(오른쪽)는 비교하지 않는다.
+  ```js
+  var one = 1;
+  log(one === 1 || two === 2); //결과 값 : true
+  ```
+    왼쪽의 결과 값이 이미 true가 나왔기 때문에 오른쪽 결과값은 비교하지 않는다.  
+    만약 비교를 하게 된다면 two 변수는 존재하지 않기 때문에 error가 뜰것이다.
+
+---
+
+## && 연산자
+
+* 논리 AND 연산자
+* 표현식의 표현결과가 모두 true면 true 아니면 false
+  ```js
+  var one = 1, two = 2;
+  log(one && two); // 결과 값 : 2
+  ```
+  모두 true일 경우, 마지막 변수의 값을 반환한다.
+* 왼쪽 결과가 false 이면 오른쪽은 비교하지 않는다.
+  ```js
+  var one = 1, zero = 0;
+  log(one && zero && nine); // 실행 결과 : 0
+  ```
+  변수 one과 zero를 비교했을때 true와 false 이므로 false가 된다.  
+  왼쪽 결과가 이미 false이기 때문에 nine은 평가하지 않는다.  
+  마지막 변수인 zero의 값을 반환한다.
+
+---
+
+## 조건 연산자
+
+* 삼항 연산자라고도 부른다.
+* exp ? exp-1 : exp-2
+  exp 위치의 표현식을 먼저 평가한다.  
+  `true` ➡ exp-1 값 반환  
+  `false` ➡ exp-2 값 반환
+  ```js
+  log(1 === 1 ? "같음" : "다름"); //결과 값 : 같음
+  log(1 === "1" ? "같음" : "다름"); //결과 값 : 다름
+  ```
+
+---
+
+## 연산자 우선 순위
+
+* MDN 홈페이지 참조
