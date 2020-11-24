@@ -1,4 +1,4 @@
-I"�<hr />
+I"u<hr />
 
 <h1 id="vuejs-를-시작하며">vue.js 를 시작하며…</h1>
 
@@ -22,8 +22,7 @@
 
 <p>Node.js 설치 확인 방법</p>
 <div class="iterm">
-   <span>$ node -v </span>  <br />
-   <span>$ npm -v  </span>
+<span>$ node -v </span> <br /> <span>$ npm -v </span>
 </div>
 <p><br /></p>
 
@@ -51,24 +50,18 @@
 <h4 id="2x-버전-설치">2.x 버전 설치</h4>
 
 <div class="iterm">
-    <span class="notes">/* 해당 디렉토리 안에서만 설치 */</span>
-    <span>$npm install vue-cli</span> 
-    <span class="notes">/* 전역 설치 */ </span>
-    <span>$npm install vue-cli -g</span>
+<span class="notes">/* 해당 디렉토리 안에서만 설치 */</span> <span>$npm install vue-cli</span> <span class="notes">/* 전역 설치 */ </span> <span>$npm install vue-cli -g</span>
 </div>
 
 <h4 id="3x-버전-설치">3.x 버전 설치</h4>
 
 <div class="iterm">
-    <span class="notes">/* 해당 디렉토리 안에서만 설치 */</span>
-    <span>$npm @vue/cli-service</span> 
-    <span class="notes">/* 전역 설치 */ </span>
-    <span>$ npm i -g @vue/cli</span>
+<span class="notes">/* 해당 디렉토리 안에서만 설치 */</span> <span>$npm @vue/cli-service</span> <span class="notes">/* 전역 설치 */ </span> <span>$ npm i -g @vue/cli</span>
 </div>
 
 <h3 id="여기서-잠깐-">여기서 잠깐!! 👀</h3>
 <div class="notice">
-    <span class="color1">Vue CLI 3.x 버전</span>과 (현재는 기본으로 깔면 4.x이다) <span class="color1">Vue CLI 2.X</span> 버전은 프로젝트를 생성할때 기본적으로 생성되는 디렉토리 구성이 다릅니다. 
+<span class="color1">Vue CLI 3.x 버전</span>과 (현재는 기본으로 깔면 4.x이다) <span class="color1">Vue CLI 2.X</span> 버전은 프로젝트를 생성할때 기본적으로 생성되는 디렉토리 구성이 다릅니다.
 </div>
 
 <table>
@@ -88,14 +81,12 @@
 
 <h3 id="3x-버전을-미리-깔았는데2x-버전으로-바꾸고-싶다면-">3.x 버전을 미리 깔았는데…2.x 버전으로 바꾸고 싶다면? 🤔</h3>
 <div class="iterm">
-    <span> $ npm install @vue/cli-init -g </span>
-    <span class="notes">/* init으로 초기화 후 2.x 버전을 까는 명령어를 입력한다. */</span>
-    <span>npm install -g vue-cli</span>
+<span> $ npm install @vue/cli-init -g </span> <span class="notes">/* init으로 초기화 후 2.x 버전을 까는 명령어를 입력한다. */</span> <span>npm install -g vue-cli</span>
 </div>
 
 <p>vue 버전 확인은 이렇게 한다.</p>
 <div class="iterm">
-    <span> $ vue --version </span>
+<span> $ vue --version </span>
 </div>
 <p><br /></p>
 
@@ -106,20 +97,19 @@
 <h5 id="반대로-낮은-버전에서-높은-버전으로-올린다면">반대로 낮은 버전에서 높은 버전으로 올린다면?</h5>
 
 <div class="iterm">
-    <span>npm r -g vue-cli </span>
-    <span>npm install -g @vue/cli</span>
+<span>npm r -g vue-cli </span> <span>npm install -g @vue/cli</span>
 </div>
 
 <h2 id="2-vue-프로젝트-생성">2. Vue 프로젝트 생성</h2>
 
 <p>vue CLI 를 이용해 프로젝트를 초기화하는 기본 명령어는 아래와 같다.</p>
 <div class="iterm">
-    <span> $vue init template-name project-name </span>
+<span> $vue init template-name project-name </span>
 </div>
 
 <p>vue CLI 3.x 버전 이상은 아래와 같이 생성합니다.</p>
 <div class="iterm">
-    <span> vue create [project name] </span>
+<span> vue create [project name] </span>
 </div>
 
 <p><code class="language-plaintext highlighter-rouge">template-name</code> 이 위치한 곳엔 template-name을, <code class="language-plaintext highlighter-rouge">project-name</code> 이 위치한 곳엔 프로젝트 이름을 넣으면 완성 <br /></p>
@@ -178,7 +168,7 @@
 
 <h5 id="웹팩">웹팩?</h5>
 
-<p class="message">webpack : 파일 간의 연관 관계를 파악하여 하나의 자바스크립트 파일로 변환해 주는 변환 도구 </p>
+<p class="message">webpack : 파일 간의 연관 관계를 파악하여 하나의 자바스크립트 파일로 변환해 주는 변환 도구</p>
 
 <p>웹팩은 애플리케이션 동작과 관련된 여러개의 파일(HTML, CSS, Javascript…) 들을 <code class="language-plaintext highlighter-rouge">하나의 js 파일</code>로 변환 시켜준다.  <br />
 내가 애플리케이션을 만들때 10개의 html 파일, 3개의 css 파일 등등을 만들어 사용했다면 <br />
