@@ -188,8 +188,8 @@ for(var i = 1; i <= 50; i++){
   if(i % 2 === 0){
     even += i;
 
-    document.write(i + '<br/>');
-    document.getElementById('even').innerHTML = even;
+    document.write(i + '<br/>'); // 짝수 리스트 출력
+    document.getElementById('even').innerHTML = even; //짝수의 합 출력
   }
 };
 
@@ -198,9 +198,52 @@ var odd = 0;
 for(i = 1; i <= 50; i++){
   if(i % 2 != 0){
     odd += i;
-   document.write(i + '<br/>');
-   document.getElementById('odd').innerHTML = odd;  
+   document.write(i + '<br/>'); // 홀수 리스트 출력
+   document.getElementById('odd').innerHTML = odd; // 홀수의 합 출력
   }
 }
 
 ```
+
+## break;
+
+* 형태 : break;
+        break 식별자;
+* 반복문을 종료시킬 때 사용한다.
+```js
+var k = 0, m = 0;
+while(k < 3){
+    m++;
+    if(m === 2){
+        break;
+    };
+    log(m)
+};
+//실행결과 : 1
+```
+변수 m이 1씩 증가하여 if문 조건에 맞는 2가 되었을때 break 문이 사용되며 반복이 중지된다.  
+이때 k의 값이 3보다 작아도 `break`가 실행됐기 때문에 더 반복하지 않고 끝난다.
+
+* `for`, `for~in`, `while`, `do~while`, `swich` 에서 사용된다.
+
+---
+
+## continue
+
+* 형태 : continue;
+        continue 식별자;
+* 반복문의 처음으로 분기된다.
+
+```js
+for(var k = 0; k < 5; k++){
+    if(k === 2 || k === 3){
+        continue;
+    };
+    log(k);
+}
+// 실행 값 : 0, 1, 4
+```
+1. k가 2 또는 3이면 continue문을 실행한다.
+2. continue가 실행되면 consol.log(k)를 실행하지 않고 바로 k++로 간다.
+
+* `for`, `for~in`, `while`, `do~while`에서 사용된다.
