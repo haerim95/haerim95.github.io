@@ -247,3 +247,160 @@ for(var k = 0; k < 5; k++){
 2. continue가 실행되면 consol.log(k)를 실행하지 않고 바로 k++로 간다.
 
 * `for`, `for~in`, `while`, `do~while`에서 사용된다.
+
+---
+
+## swich
+
+* 형태 : 
+    ```js
+    swich(표현식){
+        case 표현식 : 문장 리스트 opt
+        default : 문장 리스트 opt
+    };
+    ```
+* switch 표현식의 평가 값과 일치하는 case문을 수행한다.
+```js
+var exp = 1;
+switch(exp){
+    case 1:
+    log(100);
+    case 2:
+    logo(200);
+};
+
+// 실행 값 : 100, 200
+```
+`switch`의 평가값은 exp로 1이다. 그러므로 case 1을 수행하여 100이 나온다.  
+주의할 점은 case1 아래의 모든 문장도 수행된다는 점이다.  
+이를 방지하려면 `break`를 작성해야한다.
+
+* 일치하는 case가 없을 땐 `default` 실행
+```js
+var exp = 7, value;
+switch(exp){
+    case 1:
+        value = 100;
+    default:
+        value = 700;
+    case 2:
+        value = 200;
+};
+//결과 값 : 200
+log(value);
+```
+`switch`의 값이 7이므로 일치하는 `case`가 없기 때문에  
+`default` 값을 실행한다. `default` 뒤에 이어진 `case2`도 이어 실행되기 때문에 값은 200이 된다.
+* OR(||) 형태
+```js
+var exp = 3;
+switch(exp){
+    case 2:
+    case 3:
+        log(100);
+};
+//실행 값 : 100
+```
+exp 값이 2 또는 3이면 `case` 가 실행된다.
+
+---
+
+## try-catch
+
+* 형태 :
+    try 블록 catch(식별자) 블록  
+    try 블록 finally 블록  
+    try 블록 catch(식별자) 블록 finally 블록
+* `try`문에서 예외 발생을 인식한다.
+* 예외가 발생하면 `catch` 블록을 실행한다.
+```js
+var value;
+try{
+    value = ball;
+}catch(error){
+    log("catch 실행");
+};
+// 실행 값 : catch 실행
+```
+에러가 발생할 가능성이 있으면 반드시 try-catch를 사용해야 한다.
+try 블록에서 ball 변수가 존재하지 않으므로 에러가 발생한다.  
+에러가 발생하면 catch(error) 블록을 실행한다.
+
+* `finally` 블록은 예외 발생과 관계없이 실행된다.
+```js
+var sports;
+try{
+    sports = ball;
+    }catch(error){
+        log("catch 실행");
+    }finally{
+        log("finally 실행");
+    };
+    //실행 값 : catch 실행, finally 실행
+```
+에러가 발생해 `catch` 블록을 실행한 후에 `finally` 블록을  실행한다.
+만약 에러가 나지 않아도 `finally` 블록은 실행된다.
+
+---
+
+## throw
+
+* 형태 : `throw` 표현식;
+* 명시적으로 예외를 발생시킨다.
+* 예외가 발생하면 catch를 실행한다.
+```js
+try{
+    throw "오류 발생시킴";
+    var sports = "스포츠";
+}catch(error){
+    log(error);
+    log(sports);
+}
+// 실행 값 : 오류 발생시킴, undefined
+```
+`throw` 표현식에 문자열을 작성했다.  
+`throw`를 만나면 에러가 발생하고 catch 블록이 실행된다.
+이때, throw 아래의 코드는 몇 줄이 있든 실행되지 않는다.  
+따라서 sports 변수의 값이 `undefined`가 된것이다.
+
+```js
+try{
+    throw{
+        msg: "예외 발생시킴",
+        bigo: "임의의 이름 사용"
+    };
+}catch(error){
+    log(error.msg);
+    log(error.bigo);
+};
+// 실행 값 : 예외 발생시킴, 임의의 이름 사용
+```
+
+```js
+try{
+    throw new Error("예외 발생시킴");
+}catch(error){
+    log(error.message);
+};
+// 실행 값 : 예외 발생시킴
+```
+new 연산자는 새로운 object를 만드는 것이다. 
+
+---
+
+## strict 모드
+
+* 형태 : "use strict"
+* 엄격하게 JS문법 사용의 선언이다.
+* 작성한 위치부터 적용된다.
+* ES5부터 지원된다.
+```js
+"use strict";
+try{
+    book = "var를 선언하지 않음";
+    log(book);
+}catch(error){
+    log(error.message);
+}
+// 결과 : book is not defined
+```
