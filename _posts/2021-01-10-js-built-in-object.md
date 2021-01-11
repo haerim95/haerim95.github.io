@@ -1,6 +1,6 @@
 ---
 title: Built-in object
-date: 2021-01-10
+date: 2021-01-11
 categories: [javascript]
 comments: true
 ---
