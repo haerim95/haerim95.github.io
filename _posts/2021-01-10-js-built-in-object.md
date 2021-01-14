@@ -225,5 +225,7 @@ log(Number(undefined)); // undefined는 NaN으로 변환
     
     위와 같이 인스턴스 obj의 프리미티브 값 123을 반환한다.
 
+### 6. toString()
+
 ---
 
