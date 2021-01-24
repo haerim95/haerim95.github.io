@@ -150,3 +150,129 @@ var book = "12" + "AB" + "가나";
         </tr>
     </tbody>
 </table>
+
+---
+
+## 3. 문자열로 변환
+
+### String()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| 파라미터  | 변환대상 opt |
+| 반환 | 뱐환한 값 |
+
+* 파라미터 값을 String 타입으로 변환하여 반환한다.
+    - 값을 작성하지 않으면 빈문자열을 반환한다.
+
+```js
+var value = String(123);
+
+console.log(value); // 값 : 123
+console.log(typeof value); // 값 : string
+console.log(typeof ("" + 123)) // 값 : string
+```
+
+- `("" + 123)` 으로도 String 타입이 되지만  
+    `String(123)`형태가 더 가독성이 높다.
+
+### new String()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| 파라미터  | 값 opt |
+| 반환 | 생성한 String 인스턴스 |
+
+* String 인스턴스를 생성하여 반환한다.
+
+```js
+var obj = new String(123);
+console.log(typeof obj); // 값 : object
+```
+
+* 파라미터 값을 String 타입으로 변환한다.  
+    파라미터 값이 프리미티브 값이 된다.  
+
+### valueOf()
+
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| data | String 인스턴스, 문자 |
+| 파라미터  | 값 opt |
+| 반환 | 생성한 String 인스턴스 |
+
+* String 인스턴스의 프리미티브 값을 반환한다. 
+
+```js
+var obj = new String(123);
+console.log(obj.valueOf()); //값 : 123
+```
+1. obj는 String 인스턴스이다.  
+2. 파라미터 값 123이 String 인스턴스의 프리미티브 값으로 설정된다.  
+3. obj에 프리미티브 값으로 설정된 값이 반환된다.
+
+---
+
+## 4. length 프로퍼티
+
+* 문자 수를 반환한다. 
+
+```js
+var value = "ABC";
+for(var k = 0; k < value.length; k++){
+    console.log(value[k]);
+};
+// 실행결과 
+// A
+// B
+// C
+```
+"ABC"를 문자 하나씩 분리하여 반복한다. 따라서 3번 반복한다.
+
+* length 값이 반환되는 논리
+
+`value = "ABC";` 에는 length 프로퍼티가 없는데 3이 출력된다. 왜 일까?  
+
+```js
+var obj = new String("ABC");
+```
+
+위 코드를 개발자 모드에서 실행시킨뒤 sources에 들어가 살펴보면  
+오른쪽 local이 있다. 이 local에서 obj를 펼치면 length: 3이 있다. 둘은 같은 라인에 있다.   
+이건 value 변수와 obj가 같다는 뜻이기도 하다.  
+엔진이 value.length를 만나면 value가 String 타입 이므로  
+내부에서 new String("ABC")를 하게 되며(인스턴스를 생성한다.)  
+생성한 인스턴스의 length 값인 3을 반환하게 된다. 
+
+> 위 예제로 풀이하자면!  
+> 맨 처음 value에 대한 타입을 구한다.  
+> 내부에서 new String 인스턴스를 만든다. 그리고 "ABC"가 프리미티브 값에 설정된다.  
+> 이때 그 프리미티브 값을 보고 랭스를 만든다.
+
+
+---
+
+## 5. 화이트 스페이스 삭제
+
+### trim()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| data | 삭제 대상 |
+| 파라미터  | 사용하지 않음 |
+| 반환 | 삭제한 결과 |
+
+* 문자열 앞뒤의 화이트 스페이스를 삭제한다.
+
+```js
+var value = "  abcd  ";
+console.log(value.length); // 값 : 8
+
+console.log(value.trim().length); // 값 : 4
+```
+
+그냥 value의 length는 공백을 포함하여 8,  
+trim()을 사용하면 앞뒤의 공백이 사라지므로 4가 반환된다.
+
+> `value.trim().length` 처럼 `.` 으로 이어진 걸 `메소드 체인(Method Chain)` 이라고 한다.
