@@ -276,3 +276,68 @@ console.log(value.trim().length); // 값 : 4
 trim()을 사용하면 앞뒤의 공백이 사라지므로 4가 반환된다.
 
 > `value.trim().length` 처럼 `.` 으로 이어진 걸 `메소드 체인(Method Chain)` 이라고 한다.
+
+---
+
+## 6. 함수호출 구조 (String에 toString이 필요한 이유)
+
+### toString()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| data | 문자열, string 인스턴스 |
+| 파라미터  | 사용하지 않음 |
+| 반환 | 변환한 값 |
+
+* data 위치의 값을 String 타입으로 변환한다. 
+
+_"123".toString();_
+
+> string()은 이미 문자열인데 어째서 toString()이 필요할까?
+> 의미가 없다?
+
+[ toString() 함수가 필요한 이유 ]  
+
+인스턴스를 만들때 toString이 인스턴스에 해당함
+
+```js
+var twoProto = instance.__proto__.__proto__;
+```
+
+```js
+__proto__:
+    toString();
+    __proto__:
+       toString(); 
+```
+
+위처럼 `__proto__` 안에 `__proto__`가 있는 구조이다.  
+
+아래에 있는 것은 프로퍼티를 String으로 변환하는것, 위에 있는 것은 문자열을 String으로 변환하는 것  
+내려가서 실행되는걸 방지하기 위해 toString()을 작성해준다.  
+<br/>
+그래서 대부분의 빌트인 오브젝트에 toString()과 valueOf()가 있는 것이다.  
+
+### JS 함수 호출 구조
+
+1. 데이터 타입으로 오브젝트를 결정한다.  
+2. 오브젝트의 함수를 호출한다.
+
+```js
+var value = 123;
+value.toString();
+"123".toString();
+```
+value.toString()은 Number 오브젝트의 toString()을 호출한다.  
+"123".toString()은 String 오브젝트의 toString()을 호출한다.
+
+* toString(123);  
+    123을 파라미터에 작성
+    ```js
+    var result = toString(123);
+    console.log(result);
+    ```
+    1. Object 오브젝트의 toString()이 호출된다.  
+    2. 123을 오브젝트로 간주하여 Object 형태를 문자열로 변환한다.  
+    3. object Undefined 가 반환된다.  
+    4. 값만 입력했는데 key:value 값이 들어오기 때문이다.
