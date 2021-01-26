@@ -341,3 +341,56 @@ value.toString()은 Number 오브젝트의 toString()을 호출한다.
     2. 123을 오브젝트로 간주하여 Object 형태를 문자열로 변환한다.  
     3. object Undefined 가 반환된다.  
     4. 값만 입력했는데 key:value 값이 들어오기 때문이다.
+
+---
+
+## 7. 인덱스로 문자열 정리
+
+### cahrAt()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| data | 반환 대상 |
+| 파라미터  | 반환 기준 인덱스(index) |
+| 반환 | 인덱스 번째 문자 |
+
+* 인덱스의 문자를 반환한다.
+
+    ```js
+    var value = "sports";
+    console.log(value.charAt(1)); // 함수를 호출하는 형태
+    console.log(value[1]); //프로퍼티 이름으로 값을 구하는 형태
+    // 값 : p, p
+    ```
+    ES5에선 `[1]` 형태로 사용할 수 있다.
+
+* 문자열 길이보다 인덱스가 크면 빈문자열을 반환한다. 
+
+    ```js
+    var value = "sports";
+    console.log(value.charAt(12));
+    // 값 : ""
+    ```
+    `sports`의 전체 문자열 수는 6인데 파라미터의 인덱스가 전체 문자열보다 크므로  
+    빈 문자열을 반환한다.
+
+    <span class="color2"> 빈 문자열도 "값" 이다.</span>
+
+* 일반적으로 존재하지 않으면 undefined를 반환한다.
+
+    ```js
+    var value = "sports";
+    console.log(value[12]);
+    // 값 : undefined
+    ```
+    12번째 인덱스가 없으므로 undefined를 반환한다.  
+    프로퍼티 이름으로 가서 반환하기 때문에 위에 빈 문자열을 반환하는 것과는 차이가 있다.  
+
+### indexOf()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| data | 검색 대상 |
+| 파라미터  | 검색한 문자열 |
+| 반환 | 인덱스 번째 문자 |
+
