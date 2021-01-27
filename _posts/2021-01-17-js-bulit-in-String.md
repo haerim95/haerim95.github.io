@@ -388,9 +388,125 @@ value.toString()은 Number 오브젝트의 toString()을 호출한다.
 
 ### indexOf()
 
-| 구분 | 데이터(값) |
-| :---: | :---: |
-| data | 검색 대상 |
-| 파라미터  | 검색한 문자열 |
-| 반환 | 인덱스 번째 문자 |
+<table style="text-align:center;">
+    <thead>
+        <tr>
+            <th>구분</th>
+            <th>데이터(값)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>data</td>
+            <td>검색 대상</td>
+        </tr>
+        <tr>
+            <td rowspan="2">파라미터</td>
+            <td >검색한 문자열</td>
+        </tr>
+        <tr>
+            <td>검색 시작 위치, 디폴트 : 0</td>
+        </tr>
+        <tr>
+            <td>반환</td>
+            <td>인덱스</td>
+        </tr>
+    </tbody>
+</table>
 
+* data 위치의 문자열에서 파라미터의 문자와 같은 첫 번째 인덱스를 반환한다.
+* 검색기준은 3가지가 있다.
+
+#### 1. 왼쪽에서 오른쪽으로  
+
+```js
+var value = "123123";
+console.log(value.indexOf(2)); // 값 : 1
+console.log(value.indexOf(23)); // 값 : 1
+```
+    
+    123123에서 `2` 는 두개이지만 처음 인덱스를 반환하므로 1이다.  
+    값을 구하게 되면 더 이상 값을 구하지 않고 끝난다.  
+    23에선 23이 존재하며 23중 처음인 2가 검색된 인덱스를 반환한다.
+
+#### 2. 두 번째 파라미터를 작성하면 그 작성한 인덱스번째부터 검색한다. 
+
+```js
+var value = "123123";
+console.log(value.indexOf(2,3)); //값 : 4
+```
+index(2,3) 은 3번 인덱스부터 2를 찾아 검색하는 것이다.  
+3번째 인덱스부터 2를 찾아 2의 인덱스를 찾으니 값은 4가 된다.
+
+#### 3. 같은 문자가 없으면 -1 을 반환한다. <span class="color2">(자주 쓰이는 방법!)<span>
+
+```js
+var value = "123123";
+console.log(value.indexOf(15)); //값 : -1
+```
+
+> indexOf를 사용할때 자주 사용한다.  존재 여부를 체크하기 때문
+
+```js
+var value = "123123";
+console.log(value.indexOf(2, -1)); //값 : 1
+console.log(value.indexOf(2, 9)); //값 : -1
+console.log(value.indexOf(2, "A")); //값 : 1
+```
+예제 1. 두 번째 파라미터 값이 0보다 작으면 처음부터 검색하므로 1이 나온다.  
+예제 2. 두 번째 파라미터 값이 length 보다 `크면` -1 을 반환한다.  
+예제 3. 두 번째 파라미터가 NaN이면 처음부터 검색한다.
+
+> 조건들은 전부 안 외워도 된다. index 번째의 값을 반환한다는 것, 존재하지 않으면 -1을 반환한다는 것. 이것만 기억하자
+
+### lastIndexOf()
+
+<table style="text-align:center;">
+    <thead>
+        <tr>
+            <th>구분</th>
+            <th>데이터(값)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>data</td>
+            <td>검색 대상</td>
+        </tr>
+        <tr>
+            <td rowspan="2">파라미터</td>
+            <td >검색한 문자열</td>
+        </tr>
+        <tr>
+            <td>검색 시작 위치, 디폴트 : 0</td>
+        </tr>
+        <tr>
+            <td>반환</td>
+            <td>인덱스</td>
+        </tr>
+    </tbody>
+</table>
+
+* data 위치의 문자열에서 파라미터의 문자와 같은 인덱스를 반환한다.  
+    (단, 뒤에서 앞으로 검색한다.)
+
+    ```js
+    var value = "123123";
+    console.log(value.lastIndexOf(2)); //값 : 4
+
+    ```
+    마지막 인덱스를 반환하므로 4를 반환한다. 
+
+* 검색기준은 2가지 이다.
+
+#### 1. 두 번째 파라미터를 작성하면 작성한 인덱스부터 검색
+
+```js
+var value = "1231231";
+console.log(value.lastIndexOf(1, 4)); //값 : 3
+console.log(value.lastIndexOf(2, -1)); // 값 : -1
+```
+예제 1)  
+<span class="color2">인덱스는 왼쪽에서 오른쪽부터 시작한다.</span> 그러나 첫번째 파라미터를 찾을땐 역순이다.  
+"1231`2`31" 4번째 인덱스 2에서 오른쪽에서 왼쪽으로 이동해 "123`1`231" 1을 찾음. 고로 3이 반환된다.  
+예제 2) 두 번째 파라미터가 `0보다 작으면 -1을 반환`한다.
