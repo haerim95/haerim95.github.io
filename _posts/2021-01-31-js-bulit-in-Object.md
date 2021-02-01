@@ -40,3 +40,60 @@ comments: true
 > 빌트인 오브젝트는 네이티브 오브젝트에 포한된다고 봐야하기 때문에 자바스크립트의 오브젝트는 `네이티브`와 `호스트` 두가지라고 보면 된다.
 
 * JS는 호스트 환경에서 브라우저의 모든 요소 기술을 연결하고 융합하며 이를 제어한다.  
+
+
+---
+
+## 2. 빌트인 Object 프로퍼티 리스트
+
+<table>
+    <thead>
+        <tr>
+            <th>이름</th>
+            <th>개요</th>
+        </tr>
+    </thead>
+    <tbody style="text-align: center;">
+        <tr>
+            <td>new Object()</td>
+            <td>파라미터 데이터 타입의 인스턴스를 생성</td>
+        </tr>
+         <tr>
+            <td>Object()</td>
+            <td>Object 인스턴스 생성</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-weight:bold; background-color:#eeeeee;">Object.prototype</td>
+        </tr>
+        <tr>
+            <td>constructor</td>
+            <td>생성자</td>
+        </tr>
+        <tr>
+            <td>valueOf()</td>
+            <td>프리미티브 값 반환</td>
+        </tr>
+         <tr>
+            <td>hasOwnProperty()</td>
+            <td>프로퍼티 소유 여부 반환</td>
+        </tr>
+         <tr>
+            <td>propertyIsEnumerable()</td>
+            <td>프로퍼티 열거 여부 반환</td>
+        </tr>
+         <tr>
+            <td>isPrototypeOf()</td>
+            <td>prototype의 존재 여부 반환</td>
+        </tr>
+         <tr>
+            <td>toString()</td>
+            <td>문자열로 반환</td>
+        </tr>
+         <tr>
+            <td>toLocaleString()</td>
+            <td>지역화 문자열로 변환</td>
+        </tr>
+    </tbody>
+</table>
+
+밑에서 6개의 함수는 빌트인 오브젝트로 인스턴스를 만드는 오브젝트에 포함된다.  (__ proto __)
