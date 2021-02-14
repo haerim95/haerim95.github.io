@@ -116,3 +116,60 @@ prototype이 없으면 인스턴스를 만들 수 없다. (프로퍼티를 연�
 
 ## 4. 함수와 메소드 연결
 
+* 함수  
+    -오브젝트에 연결  
+    -Object.create()  
+
+* 메소드
+    -오브젝트의 prototype에 연결  
+    -Object.prototype.toString()  
+    이때 < toString > 함수가 메소드가 된다.  
+
+### 함수, 메소드 호출
+
+* 함수 호출 방법  
+    -Object.create();  
+    ```js
+    console.log(Object.create);
+    // 값 : function create(){[native code]}
+    console.log(Object.prototype.create);
+    // 값 : undefined
+    ```
+    1. Object에 create가 존재하므로 함수를 출력한다.  
+    2. Object.prototype에 create가 존재하지 않으므로 undefined가 출력된다.  
+
+* 메소드 호출 방법
+    -Object.prototype.toString();  
+    -또는 인스턴스를 생성하여 호출한다.  
+    ```js
+    console.log(Object.protoType.toString());
+    // 값 : function toString(){[native code]}
+
+    var obj = {};
+    log(obj.toString);
+    // 값 : function toString(){[native code]}
+    ```
+    1. Object.prototype에 toString이 존재하므로 함수를 출력한다.  
+    2. 인스턴스를 사용하여 메소드를 호출할 때는 prototype을 작성하지 않는다.  
+        prototype에 연결된 메소드로 인스턴스를 생성하기 때문이다.  
+        즉, toString 함수는 방법이 두가지 이다.  
+
+* 함수와 메소드를 구분해야 하는 이유  
+    -JS 코드 작성 방법이 다르다.
+    -함수는 파라미터에 값을 작성하고 메소드는 메소드 앞에 값을 작성한다.  
+    ```js
+    console.log(String.fromCharCode(49, 65);
+    //값 : 1A
+    ```
+    함수 앞에 배열로 값을 작성하면 Array 오브젝트의 함수가 호출되므로  
+    String 오브젝트의 함수를 호출하면서 파라미터에 값을 작성해야한다.  
+
+> prototype이 연결되어 있으면 medhod이고  
+> 연결되어 있지 않으면 함수이다.
+
+---
+
+## 프로퍼티 퍼리 메소드
+
+
+
