@@ -250,3 +250,83 @@ for(var name in obj){
 
 ---
 
+## Object와 prototype, 빌트인 Object 특징
+
+### 빌트인 Object의 특징
+
+* 인스턴스를 만들 수 있는 모든 빌트인 오브잭트의 `__proto__`에 Object.prototype의 6개 메소드가 설정된다.  
+    number, string 등등 의 인스턴스의 `__proto__`에도 설정된다는 말이다.  
+
+* 따라서 빌트인 오브젝트로 만든 인스턴스에도 설정된다.  
+
+### isPrototypeOf()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| object  | 검색할 오브젝트.prototype |
+| 파라미터 | 검색 대상 오브젝트 |
+| 반환 | true, false |
+
+* 파라미터에 작성한 오브젝트에서 object 위치에 작성한 prototype이 존재하면 true를 반환하고 존재하지 않으면 false를 반환한다.  
+
+```js
+var numObj = new Number(123);
+console.log(Object.prototype.isPrototypeOf(numObj));
+//값 : true
+```  
+1. Object.prototype처럼 오브젝트의 prototype을 작성한다.  
+2. numObj에 Object.prototype의 존재를 체크한다.  
+3. prototype이 존재하므로 true를 반환한다.  
+    > `깊은 풀이 `  
+    > 앞서 모든 빌트인 오브젝트엔 Object.prototype의 6개의 메소드가 들어있다 했다. 
+    > new Number를 선언하여 number 인스턴스를 불러왔고 number 인스턴스 안에 `__proto__`가 있고 
+    > 그 안에 또 `__proto__` 안에 Object.prototype의 6개의 메소드가 들어있으므로  
+    > object.prototype이 존재하는 것이다.
+
+### toString()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| object  | Object 인스턴스 |
+| 파라미터 | 사용불가 |
+| 반환 | 변환한 값 |
+
+* 인스턴스 타입을 문자열로 표시한다.  
+```js
+var point = {book: "책"};
+console.log(point.toString());
+// 값 : [object Object]
+
+var obj = new Number(123);
+console.log(Object.prototype.toString.call(obj));
+// 값 : [object Number]
+```  
+1. toString() 앞에 Object 인스턴스를 작성했으며  
+2. toString()을 실행하면 결과 값처럼 [object Object]를 표시한다.  
+3. 앞의 소문자 object는 인스턴스를 나타내고 뒤의 대문자 Object는 빌트인 Object를 나타낸다.  
+
+* 오브젝트에 toString()이 있으면 toString()이 호출되고  
+    없으면 Object의 toString()이 호출된다.  
+
+### toLocaleString()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| data  | 변환 대상 |
+| 파라미터 | 사용하지 않음 |
+| 반환 | 변환한 값 |
+
+* 지역화 문자 변환 메소드 대체 호출  
+    Array, Number, Date 오브젝트의 toLocaleString()메소드가 먼저 호출된다.  
+```js
+console.log(1234.56.toLocaleString());
+console.log("4567.89".toLocaleString());
+// 값 : 1,234.56
+// 값 : 4567.89
+```  
+1. 1234.56에 콤마(,)를 삽입하여 1,234.56으로 출력  
+2. 이때에는 Number.prototype.toLocaleString()메소드가 호출된다.  
+3. "4567.89"는 String 타입이며  
+4. String.prototype.toLocaleString()이 없으므로  
+5. Object,prototype.toLocaleString() 메소드가 호출된다.  
+6. Object의 toLocaleString()이 없으면 애로거 발생한다. 즉, 에러 발생을 방지하기 위한 것이다.
