@@ -169,7 +169,84 @@ prototype이 없으면 인스턴스를 만들 수 없다. (프로퍼티를 연�
 
 ---
 
-## 프로퍼티 퍼리 메소드
+## 프로퍼티 처리 메소드
+
+### hasOwnProperty()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| object  | 기준 인스턴스 |
+| 파라미터 | 프로퍼티 이름 |
+| 반환 | true, false |
+
+* 인스턴스에 파라미터 이름이 존재하면 `true` 반환, 존재하지 않으면 `false` 반환
+
+```js
+var obj = {value: 123};
+var own = obj.hasOwnProperty("value");
+console.log(own);
+//값 : true
+```
+<p style="text-align: center; background-color: #eeeeee;">[프로퍼티 존재 여부 코드]</p>
+
+1. obj 인스턴스에 value 프로퍼티가 존재하며 (name="value")
+2. obj를 만들면서 직접 작성했으로 true를 반환한다.  
+```js
+var obj = {value: undefined};
+var own = obj.hasOwnProperty("value");
+console.log(own); //값 : true
+```
+<p style="text-align: center; background-color: #eeeeee;">[값은 체크하지 않음]</p>
+
+1. undefined가 값이지만 false로 인식된다.  
+2. 하지만 값은 체크하지 않고 `존재 여부만 체크` 하므로 true가 반환된다.
+
+* 자신이 만든 것이 아니라 상속받은 프로퍼티이면 false를 반환한다.  
+
+```js
+var obj = {};
+var own = obj.hasOwnProperty("hasOwnProperty"); //괄호 안 hasOwnProperty는 프로퍼티 이름이면서 메소드이다.
+console.log(own); //값 false
+```
+0. obj 에 아무런 값도 할당하지 않았으므로  
+1. hasOwnProperty()는 자신이 만든 것이 아니라 빌트인 Object 오브젝트에 있는 것이다.  
+    자신이 만든 것은 위에 있는 프로퍼티 존재여부 코드에 있는 것이다.  
+2. {}를 실행하면 빌트인 Object의 prototype에 연결된 메소드를 사용하여  
+3. Object 인스턴스를 만드므로 자신이 만든 것이 아니다.  
 
 
+### propertyIsEnumerable()
+
+| 구분 | 데이터(값) |
+| :---: | :---: |
+| object  | 인스턴스, 오브젝트 |
+| 파라미터 | 프로퍼티 이름 |
+| 반환 | true, false |
+
+* 오브젝트에서 프로퍼티를 열거 할 수 있으면 `true`를 반환한다.  
+```js
+var obj = {sports: "축구"};
+console.log(obj.propertyIsEnumerable("sports"));
+//값 : true
+```  
+1. {sports: "축구"} 형태로 생성한 인스턴스는 obj의 프로퍼티를 열거할 수 있다.(for in 문 사용)  
+
+* 오브젝트에서 프로퍼티를 열거할 수 없으면 `false`를 반환한다.
+
+```js
+var obj = {sports: "축구"};
+Object.defineProperty(obj, "sports", {
+    enumerable : false //열거할 수 없는 상태로 설정함
+});
+console.log(obj.propertyIsEnumerable("sports"));
+
+for(var name in obj){
+    console.log(name);
+}
+// 값 : false
+```
+1. {enumerable: false}로 열거 불가 설정  
+2. for-in 문에서 프로퍼티가 열거되지 않는다  
+
+---
 
