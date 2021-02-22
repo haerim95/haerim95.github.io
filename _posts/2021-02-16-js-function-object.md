@@ -1,5 +1,5 @@
 ---
-title: built in Function Object
+title: built in Function 4 Object
 date: 2021-02-16
 categories: [javascript]
 comments: true
@@ -120,5 +120,5 @@ comments: true
 * 처리 방법과 파라미터 작성이 new Function()과 같다.  
 * 차이점은 단지 new 연산자를 사용하지 않는 것 뿐이다.
 
-
+---
 
